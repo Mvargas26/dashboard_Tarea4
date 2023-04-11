@@ -1,5 +1,6 @@
 import 'package:dashboard_api_2/Services/cliente_service.dart';
 import 'package:dashboard_api_2/models/usuario_model.dart';
+import 'package:dashboard_api_2/screens/modify_usuario.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -48,7 +49,13 @@ class _HomeState extends State<Home> {
             itemCount: snapshot.data!.length,
             itemBuilder: (BuildContext context, int index) {
               return ListTile(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (_) =>
+                              ModifyUsuario(snapshot.data![index])));
+                },
                 onLongPress: () {},
                 title: Text(snapshot.data![index].nombre +
                     " " +
